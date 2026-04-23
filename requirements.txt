@@ -1,0 +1,7 @@
+pandas
+numpy
+scikit-learn
+sentence-transformers
+faiss-cpu
+googletrans==4.0.0-rc1
+tqdm

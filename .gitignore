@@ -1,0 +1,29 @@
+_private/
+data/raw/
+
+# Large or sensitive data artifacts
+*.npy
+*.npz
+*.zip
+*.xlsx
+*.xls
+*.pptx
+*.pdf
+
+# Notebook/runtime noise
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environments
+.env
+.venv/
+venv/
+env/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
