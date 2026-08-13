@@ -1,6 +1,0 @@
-demand_company,provider_company,technology_type,technology_name,similarity
-수요기업 A,공급기업 1,특허,기술 A,0.723
-수요기업 A,공급기업 1,솔루션,기술 B,0.694
-수요기업 A,공급기업 2,특허,기술 C,0.681
-수요기업 B,공급기업 4,특허,기술 D,0.638
-수요기업 B,공급기업 4,특허,기술 E,0.634

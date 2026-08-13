@@ -1,5 +1,8 @@
 _private/
-data/raw/
+
+# All data and generated artifacts stay outside the public repository.
+data/
+artifacts/
 
 # Large or sensitive data artifacts
 *.npy
