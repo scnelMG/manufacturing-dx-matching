@@ -134,7 +134,9 @@ KR-SBERT 임베딩을 L2 정규화한 뒤 FAISS `IndexFlatIP`로 코사인 유�
 
 원본 데이터, 크롤링 결과, Gemini API 호출 결과, 대용량 임베딩 파일은 공개하지 않습니다. 따라서 이 저장소는 동일한 추천 결과를 재생산하기 위한 배포본이 아니라, **문제 재정의와 검색·재정렬 방식의 설계 근거를 검토하기 위한 포트폴리오 공개본**입니다.
 
-원본 Colab 런타임의 `pip freeze`는 남아 있지 않아 당시 환경을 소급해 동일하다고 주장하지 않습니다. 대신 `requirements.txt`에는 Python 3.12 공개 참조 환경의 직접 의존성을 고정했습니다. `notebooks/00_overview.ipynb`에 실행 순서와 각 단계의 비공개 입출력 계약을 정리했습니다.
+원본 Colab 런타임의 `pip freeze`는 남아 있지 않아 당시 환경을 소급해 동일하다고 주장하지 않습니다. 대신 `requirements.txt`에는 Python 3.12 공개 참조 환경의 직접 의존성을 고정했습니다. `notebooks/00_overview.ipynb`에 실행 순서와 각 단계의 비공개 입출력 계약을 정리했습니다. 공개 참조 흐름의 마지막 단계인 `06_company_matching.ipynb`는 수요기업 문장을 직접 임베딩하고 기술 후보 검색·공급기업 재정렬 결과를 비공개 `artifacts/provider_matching_result.csv`로 저장합니다.
+
+홈페이지 설명 보강 노트북(`03_homepage_description_generation.ipynb`)은 2025년의 별도 검토 단계입니다. 공개 참조 흐름에 자동으로 결합하지 않으며, 생성 결과는 검토 전 상태로 다룹니다.
 
 역사적 결과의 설명 보강에는 2025년 당시 Gemini 1.5 Flash를 사용했습니다. 해당 모델은 종료됐으므로 `03_homepage_description_generation.ipynb`는 현행 Google GenAI SDK와 `GEMINI_MODEL` 환경 변수(기본값 `gemini-3.5-flash`)를 사용하는 참조 구현으로 바꿨습니다. 따라서 LLM 결과 문장이 역사적 산출물과 같다고 주장하지 않으며, 실제 당시 결과는 `results/`를 기준으로 확인합니다.
 
