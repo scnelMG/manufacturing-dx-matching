@@ -140,3 +140,7 @@ KR-SBERT 임베딩을 L2 정규화한 뒤 FAISS `IndexFlatIP`로 코사인 유�
 ```bash
 pip install -r requirements.txt
 ```
+
+## 이용 안내
+
+이 저장소는 포트폴리오·학습 기록 열람을 위해 공개합니다. 코드·문서·이미지의 재사용, 수정, 배포는 사전 문의가 필요합니다.
