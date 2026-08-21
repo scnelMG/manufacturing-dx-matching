@@ -1,0 +1,32 @@
+name: portfolio-surface
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify portfolio surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+
+          if git ls-files | grep -E '(^|/)\.env($|\.local$|\.development$|\.production$)|(^|/)(id_rsa|.*\.(pem|key))$'; then
+            echo "Tracked sensitive file candidate detected."
+            exit 1
+          fi
+
+          while IFS= read -r -d '' file; do
+            bytes=$(wc -c < "$file")
+            if [ "$bytes" -gt 52428800 ]; then
+              echo "Tracked file exceeds 50 MiB: $file"
+              exit 1
+            fi
+          done < <(git ls-files -z)
