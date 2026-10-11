@@ -114,6 +114,8 @@ KR-SBERT 임베딩을 L2 정규화한 뒤 FAISS `IndexFlatIP`로 코사인 유�
 ├── README.md                         # 프로젝트 맥락, 의사결정, 한계
 ├── assets/                           # 실제 결과 HTML에서 캡처한 화면
 ├── notebooks/                        # 순서와 입출력 계약을 정리한 공개용 코드
+├── src/matching.py                   # 노트북 06에서 사용하는 검색·기업 재정렬 로직
+├── tests/                            # 합성 벡터·가상 기업으로 실행하는 회귀 검사
 ├── results/                          # 개인정보를 제외한 실제 매칭 결과 HTML
 └── requirements.txt                  # Python 3.12 기준 고정 의존성
 ```
@@ -129,6 +131,19 @@ KR-SBERT 임베딩을 L2 정규화한 뒤 FAISS `IndexFlatIP`로 코사인 유�
 ```bash
 pip install -r requirements.txt
 ```
+
+## 공개 코드 회귀 테스트
+
+저장소 루트에서 Python 3.12로 실행합니다.
+
+```bash
+pip install -r requirements-test.txt
+python -m unittest discover -s tests -v
+```
+
+노트북 06과 테스트는 같은 [`src/matching.py`](src/matching.py)를 사용합니다. 합성 벡터로 FAISS 코사인 검색·메타데이터 연결을 확인하고, 가상 기업으로 기술 집계·80:20 재정렬·신뢰도 누락·동일 점수·잘못된 입력을 검사합니다. GitHub Actions도 같은 테스트를 실행합니다.
+
+이 검사는 비공개 데이터, 모델 다운로드, API 키 없이 실행됩니다. KR-SBERT 임베딩 품질, 실제 기업 추천 적합도, 과거 HTML 결과의 재현은 검증하지 않습니다. 전체 노트북은 기존처럼 `notebooks/`에서 실행하며 원본 입력과 모델이 필요합니다.
 
 ## 이용 안내
 
